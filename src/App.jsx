@@ -7,6 +7,8 @@ import AgniIndexResultScreen from './components/AgniIndexResultScreen'
 import RecommendationsScreen from './components/RecommendationsScreen'
 import DailyLogScreen from './components/DailyLogScreen'
 import ChatAssistantScreen from './components/ChatAssistantScreen'
+import VoiceAssistant from './components/VoiceAssistant'
+import Logo from './components/Logo'
 import './App.css'
 
 // Create context for app state
@@ -48,9 +50,23 @@ function App() {
     navigateTo,
   }
 
+  // Show logo and voice assistant on all screens except onboarding
+  const showHeader = currentScreen !== 'onboarding'
+
   return (
     <AppContext.Provider value={value}>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-gradient-subtle">
+        {showHeader && (
+          <header className="bg-white/80 backdrop-blur-sm border-b border-agni-amber/20 shadow-sm sticky top-0 z-30">
+            <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+              <Logo size="small" showText={true} />
+              <div className="text-sm text-agni-charcoal-light font-medium">
+                AI-Powered Digestive Health
+              </div>
+            </div>
+          </header>
+        )}
+        
         {currentScreen === 'onboarding' && <OnboardingScreen />}
         {currentScreen === 'profile' && <ProfileSetupScreen />}
         {currentScreen === 'survey' && <SurveyScreen />}
@@ -59,6 +75,9 @@ function App() {
         {currentScreen === 'recommendations' && <RecommendationsScreen />}
         {currentScreen === 'daily-log' && <DailyLogScreen />}
         {currentScreen === 'chat' && <ChatAssistantScreen />}
+        
+        {/* Global Voice Assistant - show on all screens except onboarding and analysis */}
+        {currentScreen !== 'onboarding' && currentScreen !== 'analysis' && <VoiceAssistant />}
       </div>
     </AppContext.Provider>
   )

@@ -31,14 +31,14 @@ function ProfileSetupScreen() {
   const isFormValid = formData.age && formData.mealPattern && formData.sleepDuration
 
   return (
-    <div className="min-h-screen bg-white py-12 px-4">
+    <div className="min-h-screen bg-gradient-subtle py-12 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Profile Setup</h1>
-          <p className="text-gray-600">Help us personalize your experience</p>
+          <h1 className="text-4xl font-bold text-agni-charcoal mb-2">Profile Setup</h1>
+          <p className="text-agni-charcoal-light text-lg">Help us personalize your experience</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+        <form onSubmit={handleSubmit} className="space-y-6 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-agni-amber/20 p-8 hover:shadow-2xl transition-shadow duration-300">
           <div>
             <label htmlFor="age" className="block text-sm font-medium text-gray-700 mb-2">
               Age <span className="text-red-500">*</span>
@@ -52,7 +52,7 @@ function ProfileSetupScreen() {
               min="1"
               max="120"
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+              className="w-full px-4 py-3 border-2 border-agni-amber/30 rounded-xl focus:ring-2 focus:ring-agni-flame focus:border-agni-flame outline-none bg-white/80 transition-all duration-200"
               placeholder="Enter your age"
             />
           </div>
@@ -66,7 +66,7 @@ function ProfileSetupScreen() {
               name="gender"
               value={formData.gender}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+              className="w-full px-4 py-3 border-2 border-agni-amber/30 rounded-xl focus:ring-2 focus:ring-agni-flame focus:border-agni-flame outline-none bg-white/80 transition-all duration-200"
             >
               <option value="">Prefer not to say</option>
               <option value="male">Male</option>
@@ -85,7 +85,7 @@ function ProfileSetupScreen() {
               value={formData.mealPattern}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+              className="w-full px-4 py-3 border-2 border-agni-amber/30 rounded-xl focus:ring-2 focus:ring-agni-flame focus:border-agni-flame outline-none bg-white/80 transition-all duration-200"
             >
               <option value="">Select meal pattern</option>
               <option value="regular">Regular</option>
@@ -107,7 +107,7 @@ function ProfileSetupScreen() {
               max="12"
               step="0.5"
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+              className="w-full px-4 py-3 border-2 border-agni-amber/30 rounded-xl focus:ring-2 focus:ring-agni-flame focus:border-agni-flame outline-none bg-white/80 transition-all duration-200"
               placeholder="e.g., 7.5"
             />
           </div>
@@ -116,14 +116,14 @@ function ProfileSetupScreen() {
             <button
               type="button"
               onClick={() => navigateTo('onboarding')}
-              className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+              className="flex-1 px-6 py-3.5 border-2 border-agni-amber/40 text-agni-charcoal rounded-xl font-semibold hover:bg-white/80 hover:border-agni-amber transition-all duration-300 shadow-md hover:shadow-lg"
             >
               Back
             </button>
             <button
               type="submit"
               disabled={!isFormValid}
-              className="flex-1 px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-6 py-3.5 bg-gradient-to-r from-agni-saffron to-agni-flame text-white rounded-xl font-semibold hover:from-agni-saffron-dark hover:to-agni-flame-dark transition-all duration-300 shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
             >
               Continue
             </button>
@@ -135,4 +135,6 @@ function ProfileSetupScreen() {
 }
 
 export default ProfileSetupScreen
+
+
 
